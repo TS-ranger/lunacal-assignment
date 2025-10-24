@@ -54,8 +54,8 @@ export function ProfileWidget() {
   };
 
   return (
-    <div className="grid grid-rows-2 mt-10 mb-10 gap-10">
-      <Card className="py-4 bg-[#363C43] border-none h-[40vh] text-gray-300 rounded-2xl shadow-lg">
+    <div className="flex flex-col mt-10 mb-10">
+      <Card className="py-4 bg-[#363C43] border-none h-[40vh] text-gray-300 rounded-2xl shadow-black shadow-[5px_5px_10px_-3px]">
         <CardHeader className="relative ml-6 mr-6">
           <CircleHelp className="absolute -left-2 top-0 w-5 h-5 text-gray-300/40 z-10" />
           <GripVertical className="absolute -left-3 top-30 h-10" />
@@ -99,7 +99,7 @@ export function ProfileWidget() {
                 className="data-[state=active]:animate-in data-[state=active]:fade-in-50 data-[state=active]:duration-300"
               >
                 <div className="p-4 space-y-4">
-                  <p className="text-md text-[#969696] leading-relaxed">
+                  <p className="text-md text text-[#969696] leading-relaxed">
                     Hello! I&apos;m Dave, your sales rep here from Salesforce. I&apos;ve been
                     working at this awesome company for 5 years now.
                   </p>
@@ -133,42 +133,49 @@ export function ProfileWidget() {
           </Tabs>
         </CardHeader>
       </Card>
+
+      <div className="h-1 rounded-full w-10/12 bg-gray-600/50 mx-auto my-4 shadow-md shadow-black"></div>
       
       {/* ... The rest of your component (second Card) remains unchanged ... */}
       
-      <Card className="py-4 bg-[#363C43] border-none h-[40vh] text-gray-300 rounded-2xl shadow-lg">
+      <Card className="py-4 bg-[#363C43] border-none h-[40vh] text-gray-300 rounded-2xl shadow-[5px_5px_10px_-3px] shadow-black">
         <CardHeader className="relative flex flex-row items-center justify-between ml-6 mr-6">
           <CircleHelp className="absolute -left-2 top-0 w-5 h-5 text-gray-300/40 z-10" />
           <GripVertical className="absolute -left-3 top-30 h-10" />
           <div className="w-35 h-15 text-md bg-[#171717] rounded-3xl font-semibold justify-center items-center flex">Gallery</div>
           <div className="flex items-center space-x-2">
-            <div className="relative flex items-center">
+            <div className="relative flex items-center ml-4">
               <span
-                aria-hidden="true"
-                className="absolute inset-0 rounded-full filter blur-sm translate-y-0.5 shadow-[0_10px_30px_rgba(0,0,0,0.65),0_0_18px_rgba(99,102,241,0.08)]"
+              aria-hidden="true"
+              className="absolute inset-0 rounded-full bg-linear-to-b from-white/5 to-transparent blur-sm pointer-events-none"
               />
               <Button
-                type="button"
-                onClick={addImage}
-                aria-label="Add image"
-                className="relative z-10 bg-[#2F3337] text-white rounded-full px-4 py-2 flex items-center space-x-2 border border-white/5 hover:bg-[#3A3F44] transition-colors font-semibold uppercase text-xs tracking-wide shadow-[inset_0_1px_0_rgba(255,255,255,0.03),0_6px_18px_rgba(0,0,0,0.6)]"
+              type="button"
+              onClick={addImage}
+              aria-label="Add image"
+              className="relative z-10 bg-[#2F3337] text-white rounded-full px-4 py-2 mr-4 flex items-center space-x-2 border border-white/5 hover:bg-[#3A3F44] transition-colors font-semibold uppercase text-xs tracking-wide shadow-[inset_0_1px_0_rgba(255,255,255,0.10),0_8px_24px_rgba(0,0,0,0.45)]"
               >
-                <Plus className="w-4 h-4" />
-                <span className="select-none">ADD IMAGE</span>
+              <Plus className="w-4 h-4" />
+              <span className="select-none">ADD IMAGE</span>
               </Button>
             </div>
             
-            <Button 
-              variant="ghost" 
-              size="icon"
-              className="bg-[#333333] rounded-lg text-white hover:bg-[#444444] hover:text-white transition-colors"
+            <Button
+              type="button"
+              aria-label="Previous"
+              className="mr-3 w-8 h-8 rounded-full bg-[#28292F] text-gray-300 flex items-center justify-center border border-white/5
+                         shadow-[inset_0_6px_12px_rgba(255,255,255,0.02),0_8px_20px_rgba(0,0,0,0.7)]
+                         hover:bg-[#35393d] transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
             </Button>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              className="bg-[#333333] rounded-lg text-white hover:bg-[#444444] hover:text-white transition-colors"
+
+            <Button
+              type="button"
+              aria-label="Next"
+              className="w-8 h-8 rounded-full bg-[#28292F] text-gray-300 flex items-center justify-center border border-white/5
+                         shadow-[inset_0_6px_12px_rgba(255,255,255,0.02),0_8px_20px_rgba(0,0,0,0.7)]
+                         hover:bg-[#35393d] transition-colors"
             >
               <ChevronRight className="w-5 h-5" />
             </Button>
@@ -179,7 +186,7 @@ export function ProfileWidget() {
             {images.map((src, index) => (
               <div
                 key={index}
-                className="aspect-square relative rounded-xl overflow-hidden transform transition-transform duration-300 ease-out will-change-transform origin-bottom-left hover:scale-105 hover:-rotate-4 hover:shadow-2xl"
+                className="aspect-square relative rounded-xl overflow-hidden transform transition-transform duration-300 ease-out will-change-transform origin-bottom-left hover:scale-105 hover:-rotate-4 hover:shadow-2xl shadow-black"
               >
                 <Image
                   src={src}
@@ -193,6 +200,8 @@ export function ProfileWidget() {
           </div>
         </CardContent>
       </Card>
+
+      <div className="h-1 rounded-full w-10/12 bg-gray-600/50 mx-auto my-4 shadow-md shadow-black"></div>
     </div>
   );
 }
